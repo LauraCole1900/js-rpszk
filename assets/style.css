@@ -1,6 +1,12 @@
 :root {
+  --headerFont1: "Orbitron", sans-serif;
+  --headerFont2: "Teko", sans-serif;
+  --bodyFont: "Exo 2", sans-serif;
   --black: #000000;
   --spockBlue: #0099f6;
+  --silver: #c3c3c3;
+  --blueSilGradient: linear-gradient(to bottom, var(--silver), var(--spockBlue));
+  --blackSilGradient: linear-gradient(to bottom, var(--black), var(--silver));
 }
 
 body {
@@ -9,14 +15,23 @@ body {
 }
 
 h1 {
-  font-family: "Orbitron", sans-serif;
+  font-family: var(--headerFont1);
 }
 
-h2 {
-  font-family: "Teko", sans-serif;
+h2,
+button {
+  font-family: var(--headerFont2);
 }
 
 p,
 li {
-  font-family: "Exo 2", sans-serif;
+  font-family: var(--bodyFont);
+}
+
+.startBtn {
+  background: var(--blackSilGradient);
+  color: var(--spockBlue);
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  font-family: var(--headerFont2);
 }

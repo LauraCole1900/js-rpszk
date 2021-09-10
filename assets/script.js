@@ -17,7 +17,7 @@ const gameStart = () => {
 // Function that grabs the user's input. Takes in the boolean from the above function.
 const userChoose = (input) => {
   if (input) {
-    var userInput = prompt("R, P, S, Z, K?");
+    const userInput = prompt("R, P, S, Z, K?");
     userChoice = userInput.toUpperCase();
     if (choices.includes(userChoice)) {
       compareChoice(choices, userChoice);
@@ -32,7 +32,7 @@ const userChoose = (input) => {
 
 // Function to compare user's choice to computer's choice and determine win, loss, or draw
 const compareChoice = (choices, userData) => {
-  var choiceIndex = Math.floor(Math.random() * choices.length);
+  const choiceIndex = Math.floor(Math.random() * choices.length);
   computerChoice = choices[choiceIndex];
   if (userData === computerChoice) {
     alert(`Computer chose ${computerChoice}. It's a draw!`);
@@ -54,7 +54,7 @@ const compareChoice = (choices, userData) => {
 
 // Function to ask player whether they want to play again
 function playAgain() {
-  var again = confirm("Play again?");
+  const again = confirm("Play again?");
   if (again) {
     userChoose(again);
   } else {
@@ -63,5 +63,6 @@ function playAgain() {
 }
 
 
-// calls gameStart function
-gameStart();
+// calls gameStart function on button click
+const startButton = document.querySelector("#startBtn");
+startButton.addEventListener("click", gameStart)
