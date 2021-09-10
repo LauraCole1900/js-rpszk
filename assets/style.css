@@ -5,8 +5,9 @@
   --black: #000000;
   --spockBlue: #0099f6;
   --silver: #c3c3c3;
-  --blueSilGradient: linear-gradient(to bottom, var(--silver), var(--spockBlue));
-  --blackSilGradient: linear-gradient(to bottom, var(--black), var(--silver));
+  --blueSilGradient: linear-gradient(to bottom, var(--spockBlue), var(--silver));
+  --blackSilGradientDown: linear-gradient(to bottom, var(--black), var(--silver));
+  --blackSilGradientUp: linear-gradient(to top, var(--black), var(--silver));
 }
 
 body {
@@ -56,14 +57,14 @@ li {
 }
 .startBtn:hover {
   color: var(--spockBlue);
-  background: var(--blackSilGradient);
+  background: var(--blackSilGradientUp);
   border: none;
   box-shadow: 0 0 0 3px var(--black);
-  font-size: 18px;
+  font-size: 17px;
 }
 .startBtn:focus {
   color: var(--black);
-  background: var(--blueSilGradient);
+  background: var(--blackSilGradientDown);
   box-shadow: none;
   font-size: 16px;
 }
