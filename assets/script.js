@@ -35,19 +35,19 @@ const compareChoice = (choices, userData) => {
   var choiceIndex = Math.floor(Math.random() * choices.length);
   computerChoice = choices[choiceIndex];
   if (userData === computerChoice) {
-    alert("Computer chose " + computerChoice + ". It's a draw!");
+    alert(`Computer chose ${computerChoice}. It's a draw!`);
     draws++;
-    alert("Wins: " + wins + "\nLosses: " + losses + "\nDraws: " + draws);
+    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
     playAgain();
   } else if (userChoice === "R" && computerChoice === "S" || userChoice === "R" && computerChoice === "Z" || userChoice === "P" && computerChoice === "R" || userChoice === "P" && computerChoice === "K" || userChoice === "S" && computerChoice === "P" || userChoice === "S" && computerChoice === "Z" || userChoice === "Z" && computerChoice === "P" || userChoice === "Z" && computerChoice === "K" || userChoice === "K" && computerChoice === "R" || userChoice === "K" && computerChoice === "S") {
-    alert("Computer chose " + computerChoice + ". You win!");
+    alert(`Computer chose ${computerChoice}. You win!`);
     wins++;
-    alert("Wins: " + wins + "\nLosses: " + losses + "\nDraws: " + draws);
+    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
     playAgain();
   } else {
-    alert("Computer chose " + computerChoice + ". Computer wins!");
+    alert(`Computer chose ${computerChoice}. Computer wins!`);
     losses++;
-    alert("Wins: " + wins + "\nLosses: " + losses + "\nDraws: " + draws);
+    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
     playAgain();
   }
 }
@@ -58,7 +58,7 @@ function playAgain() {
   if (again) {
     userChoose(again);
   } else {
-    alert("Thanks for playing! Wins: " + wins + "\nLosses: " + losses + "\nDraws: " + draws)
+    alert(`Thanks for playing!\nWins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`)
   }
 }
 
