@@ -6,6 +6,9 @@ const choices = ["R", "P", "S", "Z", "K"];
 let userConfirm;
 let userChoice = "";
 let computerChoice = "";
+const winDiv = document.querySelector("#wins");
+const lossDiv = document.querySelector("#losses");
+const drawDiv = document.querySelector("#draws");
 
 
 // Function to start the game
@@ -37,17 +40,17 @@ const compareChoice = (choices, userData) => {
   if (userData === computerChoice) {
     alert(`Computer chose ${computerChoice}. It's a draw!`);
     draws++;
-    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
+    setText(drawDiv, "Draws", draws);
     playAgain();
   } else if (userChoice === "R" && computerChoice === "S" || userChoice === "R" && computerChoice === "Z" || userChoice === "P" && computerChoice === "R" || userChoice === "P" && computerChoice === "K" || userChoice === "S" && computerChoice === "P" || userChoice === "S" && computerChoice === "Z" || userChoice === "Z" && computerChoice === "P" || userChoice === "Z" && computerChoice === "K" || userChoice === "K" && computerChoice === "R" || userChoice === "K" && computerChoice === "S") {
     alert(`Computer chose ${computerChoice}. You win!`);
     wins++;
-    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
+    setText(winDiv, "Wins", wins);
     playAgain();
   } else {
     alert(`Computer chose ${computerChoice}. Computer wins!`);
     losses++;
-    alert(`Wins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`);
+    setText(lossDiv, "Losses", losses);
     playAgain();
   }
 }
@@ -61,6 +64,15 @@ function playAgain() {
     alert(`Thanks for playing!\nWins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`)
   }
 }
+
+function setText(thisEl, title, text) {
+  thisEl.textContent = `${title}: ${text}`;
+}
+
+// Renders initial wins, losses & draws to page
+setText(drawDiv, "Draws", draws);
+setText(winDiv, "Wins", wins);
+setText(lossDiv, "Losses", losses);
 
 
 // calls gameStart function on button click

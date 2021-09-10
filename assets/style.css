@@ -28,6 +28,13 @@ li {
   font-family: var(--bodyFont);
 }
 
+#scores {
+  margin-top: 25px;
+}
+
+#wins,
+#losses,
+#draws,
 .btnRow {
   display: flex;
   justify-content: center;
