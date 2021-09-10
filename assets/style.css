@@ -48,7 +48,7 @@ li {
   background: var(--black);
   color: var(--spockBlue);
   border: 3px solid var(--black);
-  border-radius: 12px;
+  border-radius: 25px;
   font-family: var(--headerFont2);
   height: 3em;
   width: 6em;
