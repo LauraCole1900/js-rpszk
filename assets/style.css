@@ -28,10 +28,35 @@ li {
   font-family: var(--bodyFont);
 }
 
+.btnRow {
+  display: flex;
+  justify-content: center;
+}
+
+.row ol {
+  padding-left: 50px;
+}
+
 .startBtn {
-  background: var(--blackSilGradient);
+  background: var(--black);
   color: var(--spockBlue);
   border: 3px solid var(--black);
   border-radius: 12px;
   font-family: var(--headerFont2);
+  height: 3em;
+  width: 6em;
+  font-size: 16px;
+}
+.startBtn:hover {
+  color: var(--spockBlue);
+  background: var(--blackSilGradient);
+  border: none;
+  box-shadow: 0 0 0 3px var(--black);
+  font-size: 18px;
+}
+.startBtn:focus {
+  color: var(--black);
+  background: var(--blueSilGradient);
+  box-shadow: none;
+  font-size: 16px;
 }

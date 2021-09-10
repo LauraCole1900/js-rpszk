@@ -17,21 +17,34 @@
 
 <body>
   <div class="container">
-    <header>
-      <h1>Rock, Paper, Scissors, Lizard, Spock</h1>
-    </header>
+    <div class="row">
+      <header>
+        <h1>Rock, Paper, Scissors, Lizard, Spock</h1>
+      </header>
+    </div>
     <main>
-      <p>Welcome to Rock, Paper, Scissors, Lizard, Spock! The rules are as follows:</p>
-      <ol>
-        <li>Rock crushes Scissors and Lizard.</li>
-        <li>Paper covers Rock and disproves Spock.</li>
-        <li>Scissors cut Paper and decapitates Lizard.</li>
-        <li>Lizard eats Paper and poisons Spock.</li>
-        <li>Spock smashes Scissors and vaporizes Rock.</li>
-      </ol>
+      <div class="row">
+        <p>Welcome to Rock, Paper, Scissors, Lizard, Spock! The rules are as follows:</p>
+        <ol>
+          <li>Rock crushes Scissors and Lizard.</li>
+          <li>Paper covers Rock and disproves Spock.</li>
+          <li>Scissors cut Paper and decapitates Lizard.</li>
+          <li>Lizard eats Paper and poisons Spock.</li>
+          <li>Spock smashes Scissors and vaporizes Rock.</li>
+        </ol>
+      </div>
 
-      <h2>Ready? Go!</h2>
-      <button type="button" id="startBtn" class="btn startBtn">Start Game</button>
+      <div class="row">
+        <h2>Ready? Go!</h2>
+      </div>
+      <div class="row btnRow">
+        <button type="button" id="startBtn" class="btn startBtn">Start Game</button>
+      </div>
+      <div class="row" id="scores">
+        <div class="col" id="wins"></div>
+        <div class="col" id="losses"></div>
+        <div class="col" id="draws"></div>
+      </div>
     </main>
   </div>
 
