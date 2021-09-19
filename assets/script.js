@@ -9,28 +9,66 @@ let computerChoice = "";
 const winDiv = document.querySelector("#wins");
 const lossDiv = document.querySelector("#losses");
 const drawDiv = document.querySelector("#draws");
+const playerBtnsDiv = document.querySelector("#playerBtns");
 
 
 // Function to start the game
 const gameStart = () => {
-  userConfirm = confirm("Welcome! Play 'Rock, Paper, Scissors, Lizard, Spock'?")
-  userChoose(userConfirm);
+  const checkForGame = document.getElementById("playText");
+  if (checkForGame) {
+    return;
+  } else {
+    const textRowDiv = document.createElement("div");
+    textRowDiv.setAttribute("id", "playText");
+    textRowDiv.setAttribute("class", "row col-12 textRow");
+    const btnRowDiv = document.createElement("div");
+    btnRowDiv.setAttribute("class", "row buttonRow");
+    const playNow = document.createElement("p");
+    const rockBtn = document.createElement("button");
+    const paperBtn = document.createElement("button");
+    const scissorsBtn = document.createElement("button");
+    const lizardBtn = document.createElement("button");
+    const spockBtn = document.createElement("button");
+    playNow.textContent = "Please select a button to begin play."
+    rockBtn.textContent = "Rock";
+    paperBtn.textContent = "Paper";
+    scissorsBtn.textContent = "Scissors";
+    lizardBtn.textContent = "Lizard";
+    spockBtn.textContent = "Spock";
+    rockBtn.setAttribute("id", "R");
+    paperBtn.setAttribute("id", "P");
+    scissorsBtn.setAttribute("id", "S");
+    lizardBtn.setAttribute("id", "Z");
+    spockBtn.setAttribute("id", "K");
+    rockBtn.setAttribute("class", "playerBtn");
+    paperBtn.setAttribute("class", "playerBtn");
+    scissorsBtn.setAttribute("class", "playerBtn");
+    lizardBtn.setAttribute("class", "playerBtn");
+    spockBtn.setAttribute("class", "playerBtn");
+    playerBtnsDiv.appendChild(textRowDiv)
+    textRowDiv.appendChild(playNow);
+    playerBtnsDiv.appendChild(btnRowDiv);
+    btnRowDiv.appendChild(rockBtn);
+    btnRowDiv.appendChild(paperBtn);
+    btnRowDiv.appendChild(scissorsBtn);
+    btnRowDiv.appendChild(lizardBtn);
+    btnRowDiv.appendChild(spockBtn);
+    rockBtn.addEventListener("click", userChoose);
+    paperBtn.addEventListener("click", userChoose);
+    scissorsBtn.addEventListener("click", userChoose);
+    lizardBtn.addEventListener("click", userChoose);
+    spockBtn.addEventListener("click", userChoose);
+  }
+}
+
+const checkClick = (e) => {
+  console.log(e.target);
 }
 
 // Function that grabs the user's input. Takes in the boolean from the above function.
-const userChoose = (input) => {
-  if (input) {
-    const userInput = prompt("R, P, S, Z, K?");
-    userChoice = userInput.toUpperCase();
-    if (choices.includes(userChoice)) {
-      compareChoice(choices, userChoice);
-    } else {
-      alert("I'm sorry, I didn't catch that.");
-      userChoose(userConfirm);
-    }
-  } else {
-    alert("Thanks for visiting!")
-  }
+const userChoose = (e) => {
+  userChoice = e.target.id;
+  compareChoice(choices, userChoice);
 }
 
 // Function to compare user's choice to computer's choice and determine win, loss, or draw
@@ -77,4 +115,4 @@ setText(lossDiv, "Losses", losses);
 
 // calls gameStart function on button click
 const startButton = document.querySelector("#startBtn");
-startButton.addEventListener("click", gameStart)
+startButton.addEventListener("click", gameStart);
