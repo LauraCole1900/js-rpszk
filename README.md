@@ -24,7 +24,7 @@ Just a quick &amp; dirty little game of Rock, Paper, Scissors, Lizard, Spock, pl
 
 ## Screenshots
 
-Landing page:
+Play page:
 ![Landing page](./assets/images/RPSZK-screenshot.png)
 
 ## Installation Instructions
