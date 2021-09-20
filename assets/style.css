@@ -15,6 +15,10 @@ body {
   background-color: var(--spockBlue);
 }
 
+/* div {
+  border: 1px solid red;
+} */
+
 h1 {
   font-family: var(--headerFontMaj);
 }
@@ -48,6 +52,25 @@ li {
 .buttonRow {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+.choice {
+  padding-top: 10px;
+}
+
+.computer {
+  text-align: right;
+}
+
+.results {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--black);
+}
+
+.user {
+  border-top: 2px solid var(--black);
 }
 
 .startBtn,

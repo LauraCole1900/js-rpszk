@@ -70,8 +70,17 @@ const checkClick = (e) => {
   console.log(e.target);
 }
 
-// Function that grabs the user's input. Takes in the boolean from the above function.
+
+// Function that grabs the user's choice from their button-click
 const userChoose = (e) => {
+  const userChoiceEl = document.getElementById("userChoice");
+  const computerChoiceEl = document.getElementById("computerChoice");
+  const resultsChoiceEl = document.getElementById("resultsChoice");
+  if (userChoiceEl) {
+    playerBtnsDiv.removeChild(userChoiceEl);
+    playerBtnsDiv.removeChild(computerChoiceEl);
+    playerBtnsDiv.removeChild(resultsChoiceEl);
+  }
   userChoice = e.target.id;
   let choiceText = "";
   switch (userChoice) {
@@ -95,42 +104,61 @@ const userChoose = (e) => {
   }
   const userChoiceText = document.createElement("p");
   userChoiceText.textContent = `You chose ${choiceText}.`
-  userChoiceText.setAttribute("class", "userChoice");
+  userChoiceText.setAttribute("class", "user choice col-12");
+  userChoiceText.setAttribute("id", "userChoice");
   playerBtnsDiv.appendChild(userChoiceText);
   compareChoice(choices, userChoice);
 }
+
 
 // Function to compare user's choice to computer's choice and determine win, loss, or draw
 const compareChoice = (choices, userData) => {
   const choiceIndex = Math.floor(Math.random() * choices.length);
   computerChoice = choices[choiceIndex];
+  const computerChoiceText = document.createElement("p");
+  let compText = "";
+  switch (computerChoice) {
+    case "R":
+      compText = "Rock";
+      break;
+    case "P":
+      compText = "Paper";
+      break;
+    case "S":
+      compText = "Scissors";
+      break;
+    case "Z":
+      compText = "Lizard";
+      break;
+    case "K":
+      compText = "Spock";
+      break;
+    default:
+      compText = "Undefined. Please choose again."
+  }
+  computerChoiceText.textContent = `Computer chose ${compText}.`
+  computerChoiceText.setAttribute("class", "computer choice col-12");
+  computerChoiceText.setAttribute("id", "computerChoice");
+  playerBtnsDiv.appendChild(computerChoiceText);
+  const resultText = document.createElement("p");
+  resultText.setAttribute("class", "results choice col-12");
+  resultText.setAttribute("id", "resultsChoice");
   if (userData === computerChoice) {
-    alert(`Computer chose ${computerChoice}. It's a draw!`);
+    resultText.textContent = `It's a draw!`;
     draws++;
     setText(drawDiv, "Draws", draws);
-    playAgain();
   } else if (userChoice === "R" && computerChoice === "S" || userChoice === "R" && computerChoice === "Z" || userChoice === "P" && computerChoice === "R" || userChoice === "P" && computerChoice === "K" || userChoice === "S" && computerChoice === "P" || userChoice === "S" && computerChoice === "Z" || userChoice === "Z" && computerChoice === "P" || userChoice === "Z" && computerChoice === "K" || userChoice === "K" && computerChoice === "R" || userChoice === "K" && computerChoice === "S") {
-    alert(`Computer chose ${computerChoice}. You win!`);
+    resultText.textContent = `You win!`;
     wins++;
     setText(winDiv, "Wins", wins);
-    playAgain();
   } else {
-    alert(`Computer chose ${computerChoice}. Computer wins!`);
+    resultText.textContent = `Computer wins!`;
     losses++;
     setText(lossDiv, "Losses", losses);
-    playAgain();
   }
+  playerBtnsDiv.appendChild(resultText);
 }
 
-// Function to ask player whether they want to play again
-function playAgain() {
-  const again = confirm("Play again?");
-  if (again) {
-    userChoose(again);
-  } else {
-    alert(`Thanks for playing!\nWins: ${wins}\nLosses: ${losses}\nDraws: ${draws}`)
-  }
-}
 
 function setText(thisEl, title, text) {
   thisEl.textContent = `${title}: ${text}`;
