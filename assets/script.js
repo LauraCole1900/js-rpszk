@@ -23,18 +23,21 @@ const gameStart = () => {
     textRowDiv.setAttribute("class", "row col-12 textRow");
     const btnRowDiv = document.createElement("div");
     btnRowDiv.setAttribute("class", "row buttonRow");
+
     const playNow = document.createElement("p");
     const rockBtn = document.createElement("button");
     const paperBtn = document.createElement("button");
     const scissorsBtn = document.createElement("button");
     const lizardBtn = document.createElement("button");
     const spockBtn = document.createElement("button");
+
     playNow.textContent = "Please select a button to begin play."
     rockBtn.textContent = "Rock";
     paperBtn.textContent = "Paper";
     scissorsBtn.textContent = "Scissors";
     lizardBtn.textContent = "Lizard";
     spockBtn.textContent = "Spock";
+
     rockBtn.setAttribute("id", "R");
     paperBtn.setAttribute("id", "P");
     scissorsBtn.setAttribute("id", "S");
@@ -45,6 +48,7 @@ const gameStart = () => {
     scissorsBtn.setAttribute("class", "playerBtn");
     lizardBtn.setAttribute("class", "playerBtn");
     spockBtn.setAttribute("class", "playerBtn");
+
     playerBtnsDiv.appendChild(textRowDiv)
     textRowDiv.appendChild(playNow);
     playerBtnsDiv.appendChild(btnRowDiv);
@@ -53,6 +57,7 @@ const gameStart = () => {
     btnRowDiv.appendChild(scissorsBtn);
     btnRowDiv.appendChild(lizardBtn);
     btnRowDiv.appendChild(spockBtn);
+
     rockBtn.addEventListener("click", userChoose);
     paperBtn.addEventListener("click", userChoose);
     scissorsBtn.addEventListener("click", userChoose);
@@ -68,6 +73,30 @@ const checkClick = (e) => {
 // Function that grabs the user's input. Takes in the boolean from the above function.
 const userChoose = (e) => {
   userChoice = e.target.id;
+  let choiceText = "";
+  switch (userChoice) {
+    case "R":
+      choiceText = "Rock";
+      break;
+    case "P":
+      choiceText = "Paper";
+      break;
+    case "S":
+      choiceText = "Scissors";
+      break;
+    case "Z":
+      choiceText = "Lizard";
+      break;
+    case "K":
+      choiceText = "Spock";
+      break;
+    default:
+      choiceText = "Undefined. Please choose again."
+  }
+  const userChoiceText = document.createElement("p");
+  userChoiceText.textContent = `You chose ${choiceText}.`
+  userChoiceText.setAttribute("class", "userChoice");
+  playerBtnsDiv.appendChild(userChoiceText);
   compareChoice(choices, userChoice);
 }
 
