@@ -11,6 +11,7 @@ $(document).ready(function () {
   const lossDiv = $("#losses");
   const drawDiv = $("#draws");
   const playerBtnsDiv = $("#playerBtns");
+  const resultsDiv = $("#results");
 
   const playerButtons = [
     {
@@ -70,12 +71,8 @@ $(document).ready(function () {
       gameStart()
     } else {
       const userChoiceEl = $("#userChoice");
-      const computerChoiceEl = $("#computerChoice");
-      const resultsChoiceEl = $("#resultsChoice");
       if (userChoiceEl) {
-        $(userChoiceEl).remove();
-        $(computerChoiceEl).remove();
-        $(resultsChoiceEl).remove();
+        $(resultsDiv).empty();
       }
       userChoice = e.target.id;
       let choiceText = "";
@@ -99,7 +96,7 @@ $(document).ready(function () {
           choiceText = "Undefined. Please choose again."
       }
       const userChoiceText = $("<p>").text(`You chose ${choiceText}.`).attr("id", "userChoice").attr("class", "user choice col-12");
-      $(playerBtnsDiv).append(userChoiceText);
+      $(resultsDiv).append(userChoiceText);
       compareChoice(choices, userChoice);
     }
   }
@@ -130,7 +127,7 @@ $(document).ready(function () {
         compText = "Undefined. Please choose again."
     }
     const computerChoiceText = $("<p>").text(`Computer chose ${compText}.`).attr("id", "computerChoice").attr("class", "computer choice col-12");
-    playerBtnsDiv.append(computerChoiceText);
+    resultsDiv.append(computerChoiceText);
     const resultText = $("<p>").attr("id", "resultsChoice").attr("class", "results choice col-12");
     if (userData === computerChoice) {
       resultText.text(`It's a draw!`);
@@ -145,7 +142,7 @@ $(document).ready(function () {
       losses++;
       setText(lossDiv, "Losses", losses);
     }
-    playerBtnsDiv.append(resultText);
+    resultsDiv.append(resultText);
   }
 
 
@@ -153,6 +150,7 @@ $(document).ready(function () {
     thisEl.text(`${title}: ${text}`);
   }
 
+  
   // Renders initial wins, losses & draws to page
   setText(drawDiv, "Draws", draws);
   setText(winDiv, "Wins", wins);
