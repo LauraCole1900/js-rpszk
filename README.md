@@ -1,4 +1,4 @@
-# JavaScript Rock, Paper, Scissors, Lizard, Spock
+# jQuery Rock, Paper, Scissors, Lizard, Spock
 
 ## Table of Contents
 
