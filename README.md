@@ -37,7 +37,7 @@ This project is intended to be used as a casual game.
 
 ## Technologies Used
 
-HTML, CSS, JavaScript
+HTML, CSS, JavaScript, jQuery
 
 ## Tests
 
