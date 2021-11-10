@@ -37,7 +37,7 @@ This project is intended to be used as a casual game.
 
 ## Technologies Used
 
-HTML, CSS, JavaScript, jQuery
+[![HTML5](https://img.shields.io/badge/built%20with-HTML5-f06529)](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) [![CSS3](https://img.shields.io/badge/built%20with-CSS3-2965f1)](https://developer.mozilla.org/en-US/docs/Web/CSS) [![JavaScript](https://img.shields.io/badge/built%20with-JavaScript-f0db4f)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![jQuery](https://img.shields.io/badge/built%20with-jQuery-0769ad)](https://jquery.com/)
 
 ## Tests
 
@@ -57,4 +57,4 @@ If you have further questions, you can reach me at lauracole1900@comcast.net. Fo
 
 ## Badges
 
-![License badge](https://img.shields.io/badge/license-MIT-0099f6) [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/LauraCole1900/js-rpszk)
+[![License badge](https://img.shields.io/badge/license-MIT-0099f6)](./LICENSE) [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/LauraCole1900/js-rpszk)
