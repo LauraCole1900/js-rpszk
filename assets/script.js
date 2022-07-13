@@ -135,18 +135,30 @@ $(function () {
   // Function to compare user's choice to computer's choice and determine win, loss, or draw
   function compareChoice() {
     const resultText = $("<p>").attr("id", "resultsChoice").attr("class", "results choice col-12");
-    if (userChoice === computerChoice) {
-      resultText.text(`It's a draw!`);
-      draws++;
-      setText(drawDiv, "Draws", draws);
-    } else if (userChoice === "R" && computerChoice === "S" || userChoice === "R" && computerChoice === "Z" || userChoice === "P" && computerChoice === "R" || userChoice === "P" && computerChoice === "K" || userChoice === "S" && computerChoice === "P" || userChoice === "S" && computerChoice === "Z" || userChoice === "Z" && computerChoice === "P" || userChoice === "Z" && computerChoice === "K" || userChoice === "K" && computerChoice === "R" || userChoice === "K" && computerChoice === "S") {
-      resultText.text(`You win!`);
-      wins++;
-      setText(winDiv, "Wins", wins);
-    } else {
-      resultText.text(`Computer wins!`);
-      losses++;
-      setText(lossDiv, "Losses", losses);
+    switch (true) {
+      case userChoice === computerChoice:
+        resultText.text(`It's a draw!`);
+        draws++;
+        setText(drawDiv, "Draws", draws);
+        break;
+      case userChoice === "R" && computerChoice === "S":
+      case userChoice === "R" && computerChoice === "Z":
+      case userChoice === "P" && computerChoice === "R":
+      case userChoice === "P" && computerChoice === "K":
+      case userChoice === "S" && computerChoice === "P":
+      case userChoice === "S" && computerChoice === "Z":
+      case userChoice === "Z" && computerChoice === "P":
+      case userChoice === "Z" && computerChoice === "K":
+      case userChoice === "K" && computerChoice === "R":
+      case userChoice === "K" && computerChoice === "S":
+        resultText.text(`You win!`);
+        wins++;
+        setText(winDiv, "Wins", wins);
+        break;
+      default:
+        resultText.text(`Computer wins!`);
+        losses++;
+        setText(lossDiv, "Losses", losses);
     }
     resultsDiv.append(resultText);
   }
