@@ -97,13 +97,13 @@ $(function () {
       }
       const userChoiceText = $("<p>").text(`You chose ${choiceText}.`).attr("id", "userChoice").attr("class", "user choice col-12");
       $(resultsDiv).append(userChoiceText);
-      compareChoice(choices, userChoice);
+      computerChoose(choices, userChoice);
     }
   }
 
 
-  // Function to compare user's choice to computer's choice and determine win, loss, or draw
-  const compareChoice = (choices, userData) => {
+  // Function that generates the computer's choice
+  const computerChoose = (choices) => {
     const choiceIndex = Math.floor(Math.random() * choices.length);
     computerChoice = choices[choiceIndex];
     let compText = "";
@@ -128,8 +128,14 @@ $(function () {
     }
     const computerChoiceText = $("<p>").text(`Computer chose ${compText}.`).attr("id", "computerChoice").attr("class", "computer choice col-12");
     resultsDiv.append(computerChoiceText);
+    compareChoice();
+  }
+
+
+  // Function to compare user's choice to computer's choice and determine win, loss, or draw
+  function compareChoice() {
     const resultText = $("<p>").attr("id", "resultsChoice").attr("class", "results choice col-12");
-    if (userData === computerChoice) {
+    if (userChoice === computerChoice) {
       resultText.text(`It's a draw!`);
       draws++;
       setText(drawDiv, "Draws", draws);
@@ -146,11 +152,12 @@ $(function () {
   }
 
 
+  // Function that sets text of any element on the page
   function setText(thisEl, title, text) {
     thisEl.text(`${title}: ${text}`);
   }
 
-  
+
   // Renders initial wins, losses & draws to page
   setText(drawDiv, "Draws", draws);
   setText(winDiv, "Wins", wins);
